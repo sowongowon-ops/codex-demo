@@ -1,0 +1,154 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --accent: #4f46e5;
+  --accent-dark: #3730a3;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.hero {
+  padding: 64px 24px 48px;
+  text-align: center;
+  background: linear-gradient(120deg, #eef2ff, #fdf2f8);
+}
+
+.hero__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-dark);
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.hero__subtitle {
+  margin: 16px auto 24px;
+  max-width: 640px;
+  color: var(--muted);
+}
+
+.hero__cta {
+  border: none;
+  background: var(--accent);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.hero__cta--ghost {
+  background: transparent;
+  color: var(--accent-dark);
+  border: 2px solid #c7d2fe;
+  box-shadow: none;
+}
+
+.hero__cta:hover {
+  transform: translateY(-2px);
+  background: var(--accent-dark);
+}
+
+.hero__cta--ghost:hover {
+  background: #eef2ff;
+  color: var(--accent-dark);
+}
+
+.hero__actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.content {
+  max-width: 960px;
+  margin: -32px auto 0;
+  padding: 0 24px 64px;
+  display: grid;
+  gap: 24px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.card.highlight {
+  border: 2px dashed #c7d2fe;
+}
+
+.checklist {
+  display: grid;
+  gap: 12px;
+}
+
+.checklist label {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.message {
+  margin-top: 12px;
+  font-weight: 600;
+  color: var(--accent-dark);
+}
+
+.counter {
+  display: grid;
+  gap: 16px;
+  justify-items: start;
+}
+
+.counter__value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.counter__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--muted);
+}
+
+code {
+  background: #eef2ff;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
