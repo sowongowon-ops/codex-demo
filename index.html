@@ -3,75 +3,76 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Beginner Web Sample</title>
+    <title>Tetris Arcade</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="hero">
-      <p class="hero__eyebrow">Beginner Web Sample</p>
-      <h1>Build your first tiny website</h1>
-      <p class="hero__subtitle">
-        This page is a friendly starting point. Edit the text, colors, or add new sections
-        to practice HTML, CSS, and JavaScript.
-      </p>
+      <div class="hero__content">
+        <p class="hero__eyebrow">Classic Block Stacker</p>
+        <h1>Play Tetris</h1>
+        <p class="hero__subtitle">
+          Rotate, slide, and drop blocks to clear lines. Every ten lines speeds up the pace
+          so stay sharp!
+        </p>
+      </div>
       <div class="hero__actions">
-        <button id="greetButton" class="hero__cta">Say hello</button>
-        <button id="incrementButton" class="hero__cta hero__cta--ghost">Count +1</button>
+        <button id="toggleButton" class="btn">Pause</button>
+        <button id="resetButton" class="btn btn--ghost">Restart</button>
       </div>
     </header>
 
-    <main class="content">
-      <section class="card">
-        <h2>What you can try</h2>
-        <ul>
-          <li>Change the background color in <code>styles.css</code>.</li>
-          <li>Update the checklist with your own learning goals.</li>
-          <li>Add a new button and wire it up in <code>script.js</code>.</li>
-        </ul>
-      </section>
-
-      <section class="card">
-        <h2>Mini checklist</h2>
-        <div class="checklist" id="checklist">
-          <label>
-            <input type="checkbox" />
-            Edit the headline text
-          </label>
-          <label>
-            <input type="checkbox" />
-            Add a custom color
-          </label>
-          <label>
-            <input type="checkbox" />
-            Explore the JavaScript greeting
-          </label>
-        </div>
-      </section>
-
-      <section class="card highlight">
-        <h2>Next step</h2>
-        <p>
-          Open <code>script.js</code> and change the greeting message. Refresh your browser to
-          see the update.
-        </p>
-        <p class="message" id="message">Click the button to see a greeting.</p>
-      </section>
-
-      <section class="card">
-        <h2>Counter demo</h2>
-        <p>Click the button to increase the number, or reset it back to zero.</p>
-        <div class="counter">
-          <span class="counter__value" id="counterValue">0</span>
-          <div class="counter__actions">
-            <button id="incrementCounter" class="hero__cta">Increase</button>
-            <button id="resetCounter" class="hero__cta hero__cta--ghost">Reset</button>
+    <main class="layout">
+      <section class="game">
+        <div class="game__frame">
+          <canvas id="tetris" width="240" height="480" aria-label="Tetris board"></canvas>
+          <div class="game__overlay" id="overlay">
+            <p>Paused</p>
+            <span>Press P or click pause to resume.</span>
           </div>
         </div>
+        <p class="game__hint">
+          Controls: Arrow keys to move, Up to rotate, Down to soft drop, Space to hard drop.
+        </p>
       </section>
+
+      <aside class="panel">
+        <div class="panel__card">
+          <h2>Next piece</h2>
+          <canvas id="next" width="120" height="120" aria-label="Next piece preview"></canvas>
+        </div>
+
+        <div class="panel__card">
+          <h2>Stats</h2>
+          <dl class="stats">
+            <div>
+              <dt>Score</dt>
+              <dd id="score">0</dd>
+            </div>
+            <div>
+              <dt>Lines</dt>
+              <dd id="lines">0</dd>
+            </div>
+            <div>
+              <dt>Level</dt>
+              <dd id="level">1</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="panel__card">
+          <h2>How to play</h2>
+          <ul>
+            <li>Complete horizontal lines to score points.</li>
+            <li>Clear multiple lines at once for bonus points.</li>
+            <li>Level up every 10 lines to speed things up.</li>
+          </ul>
+        </div>
+      </aside>
     </main>
 
     <footer class="footer">
-      <p>Have fun experimenting. Small edits are the fastest way to learn!</p>
+      <p>Good luck! Aim for a high score and keep the stack low.</p>
     </footer>
 
     <script src="script.js"></script>
